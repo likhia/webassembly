@@ -1,0 +1,13 @@
+apiVersion: maistra.io/v1alpha1
+kind: ServiceMeshExtension
+metadata:
+  name: header-append
+  namespace: istio-system
+spec:
+  workloadSelector:
+    labels:
+      app: backend
+  config: demo
+  image: image-registry.openshift-image-registry.svc:5000/istio-system/header-append-filter@sha256:8626ca2d69ce29b1e237c1885a2036667531ebf3f10efa24e250a115fcc67e80
+  phase: PostAuthZ
+  priority: 100

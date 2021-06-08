@@ -1,0 +1,13 @@
+apiVersion: maistra.io/v1alpha1
+kind: ServiceMeshExtension
+metadata:
+  name: proxy-filter
+  namespace: istio-system
+spec:
+  workloadSelector:
+    labels:
+      app: backend
+  config: demo
+  image: image-registry.openshift-image-registry.svc:5000/istio-system/proxy-filter@sha256:a5397ccf001ce5b62a7b57b73ed8fd41ded17ee033577a126ac4ededeee63d9d
+  phase: PostAuthZ
+  priority: 100
