@@ -51,9 +51,12 @@ Replace the SHA generated in the earlier step.
 
 Please remember to enable wasmExtension in OSM control plane if you have not done it. Please wait till all the conditions are true then proceed to next step. 
 
+```
 techPreview:
     wasmExtensions:
       enabled: true
+```
+
 
 ```
 oc apply -f ../servicemesh/proxyFilterExtension.yaml 
