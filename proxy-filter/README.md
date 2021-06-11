@@ -41,15 +41,9 @@ docker tag proxy-filter:latest $REGISTRY/istio-system/proxy-filter
 
 docker push $REGISTRY/istio-system/proxy-filter
 ```
-This will push the container image to the internal registry of your openshift cluster. 
+This will push the container image to the internal registry of your openshift cluster. Copy the SHA generated. 
 
-
-```
-vi ../servicemesh/proxyFilterExtension.yaml
-```
-Replace the SHA generated in the earlier step.  
-
-Please remember to enable wasmExtension in OSM control plane if you have not done it. Please wait till all the conditions are true then proceed to next step. 
+Please remember to enable wasmExtension in OSM control plane if you have not done it. Please wait till all the conditions are true then proceed to next step.
 
 ```
 techPreview:
@@ -57,6 +51,10 @@ techPreview:
       enabled: true
 ```
 
+```
+vi ../servicemesh/proxyFilterExtension.yaml
+```
+Replace the SHA generated in the earlier step.  
 
 ```
 oc apply -f ../servicemesh/proxyFilterExtension.yaml 
